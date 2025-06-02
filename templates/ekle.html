@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Yeni Haber Ekle</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Yeni Haber Ekle</h1>
+      <form method="POST">
+        <input
+          type="text"
+          name="baslik"
+          placeholder="Haber Başlığı"
+          required
+        /><br />
+        <textarea
+          name="icerik"
+          placeholder="Haber İçeriği"
+          rows="6"
+          required
+        ></textarea
+        ><br />
+        <button type="submit">Kaydet</button>
+      </form>
+      <a class="back-link" href="{{ url_for('haber.ana_sayfa') }}"
+        >← Geri Dön</a
+      >
+    </div>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Haber Sitesi</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Güncel Haberler</h1>
+      <a class="add-button" href="{{ url_for('haber.haber_ekle_form') }}"
+        >+ Yeni Haber Ekle</a
+      >
+
+      {% for haber in haberler %}
+      <div class="card">
+        <h2>{{ haber.baslik }}</h2>
+        <p>{{ haber.icerik }}</p>
+        <div class="meta">
+          {{ haber.yayin_tarihi.strftime('%Y-%m-%d %H:%M') }}
+        </div>
+      </div>
+      {% else %}
+      <p>Henüz haber eklenmedi.</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
